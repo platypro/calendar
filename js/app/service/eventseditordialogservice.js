@@ -26,7 +26,7 @@ app.service('EventsEditorDialogService', function($uibModal, constants, settings
 
 	const EDITOR_POPOVER = 'eventspopovereditor.html';
 	const EDITOR_SIDEBAR = 'eventssidebareditor.html';
-	const REPEAT_QUESTION = ''; // TODO in followup PR
+	const REPEAT_QUESTION = 'eventsrecurrenceexceptionquestion.html';
 
 	const context = {
 		fcEvent: null,

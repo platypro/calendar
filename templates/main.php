@@ -123,6 +123,10 @@ foreach ($scripts as $script) {
 		<?php print_unescaped($this->inc('part.emptycontent')); ?>
 	</div>
 
+    <script type="text/ng-template" id="eventsrecurrenceexceptionquestion.html">
+        <?php print_unescaped($this->inc('editor.recurexception-question')); ?>
+    </script>
+
 	<script type="text/ng-template" id="eventspopovereditor.html">
 		<?php print_unescaped($this->inc('editor.popover')); ?>
 	</script>
