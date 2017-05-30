@@ -94,7 +94,7 @@ gulp.task('buildSources', () => {
 		.pipe(concat(cssBuildTarget))
 		.pipe(gulp.dest(cssDestinationFolder));
 
-	gulp.src(jsSources)
+	return gulp.src(jsSources)
 		.pipe(babel({
 			presets: ['es2015'],
 			compact: false,
