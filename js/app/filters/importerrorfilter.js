@@ -29,17 +29,29 @@ app.filter('importErrorFilter', function () {
 		}
 
 		//TODO - use n instead of t to use proper plurals in all translations
-		switch(file.errors) {
-			case 0:
-				return t('calendar', 'Successfully imported');
-
-			case 1:
+		if (file.errors === 0) {
+			return t('calendar', 'Successfully imported');
+		} else if(file.errors === 1) {
+			if (file.duplicates === 1) {
+				return t('calendar', 'Partially imported, skipped 1 duplicate');
+			} else {
 				return t('calendar', 'Partially imported, 1 failure');
-
-			default:
+			}
+		} else {
+			if (file.duplicates === 0) {
 				return t('calendar', 'Partially imported, {n} failures', {
 					n: file.errors
 				});
+			} else if (file.duplicates === file.errors) {
+				return t('calendar', 'Partially imported, skipped {n} duplicates', {
+					n: file.errors
+				});
+			} else {
+				return t('calendar', 'Partially imported, {n} failures, skipped {d} duplicates', {
+					n: (file.errors - file.duplicates),
+					d: file.duplicates
+				});
+			}
 		}
 	};
 });
